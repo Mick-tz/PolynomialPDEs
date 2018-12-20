@@ -43,7 +43,7 @@ with the following problem:
     
     throughout this code, gamma refers to a numeric approximation of Y(1).
     alpha and beta refer to given values in P(t,dotY)
-@author: Amir
+@author: Chino
 """
 
 #import numpy as np
