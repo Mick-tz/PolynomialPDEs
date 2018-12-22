@@ -46,4 +46,4 @@ transform method are listed in Table 1.
 
 
 
-[f1]:http://chart.apis.google.com/chart?cht=tx&chl=m=5
+[f1]:http://chart.apis.google.com/chart?cht=tx&chl=$m=5$
