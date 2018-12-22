@@ -46,4 +46,4 @@ transform method are listed in Table 1.
 
 
 
-[f1]:http://chart.apis.google.com/chart?cht=tx&chl=X(k)=\frac1{k!}\cdot \frac{d^k x(t)}{dt^k}\big|_{t=t_i}\ ,\ \forall t\in D.
+[f1]:http://chart.apis.google.com/chart?cht=tx&chl=X(k)=\frac1{k!}\cdot\frac{d^k x(t)}{dt^k}\big|_{t=t_i}\forall t\in D.
