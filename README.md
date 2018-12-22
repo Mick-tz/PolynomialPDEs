@@ -46,4 +46,4 @@ transform method are listed in Table 1.
 
 
 
-[f1]:http://chart.apis.google.com/chart?cht=tx&chl=$X(k)=\frac1{k!}\cdot\frac{d^kx(t)}{dt^k}\bigg\rvert_{t=t_i}.$
+[f1]:http://chart.apis.google.com/chart?cht=tx&chl=$X(k)=\frac1{k!}\cdot\frac{d^kx(t)}{dt^k}\right\rvert_{t=t_i}.$
