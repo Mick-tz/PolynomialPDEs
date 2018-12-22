@@ -7,6 +7,7 @@ Euler-lagrange equation plays an important role in the minimizing problems of th
 
 Let $x(t)$ be analytic in a domain $D$ and let $t_i$ represent any point in $D$. Along this work, we will consider and ask for $t_0=0\in D$. The function $x(t)$ is then represented by one power series whose center is located at $t_i$. The $k$th differential transformation of the function $x(t)$ is defined as follows:
 
+![f1]
 \begin{equation}
  X(k)=\frac1{k!}\cdot \frac{d^k x(t)}{dt^k}\big|_{t=t_i}\ ,\ \forall t\in D.
 \end{equation}
@@ -41,3 +42,7 @@ transform method are listed in Table 1.
 \end{tabular}
 
 ## Description of the problem
+
+
+
+[f1]:http://chart.apis.google.com/chart?cht=tx&chl=m=\frac{m_0}{\sqrt{1-{\frac{v^2}{c^2}}}}
