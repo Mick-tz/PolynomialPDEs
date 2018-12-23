@@ -53,7 +53,57 @@ from sympy import Symbol
 from scipy import optimize
 
 
-
+def recursive_differential_transform(k, Y, y0, args, symbolic = True, gama = 0.0):
+    """
+    kth differential transform of the function y(t). This helper
+    function is though to work only when t0 = 0
+    Args:
+        k: an int
+        Y: a function that returns Y(k) when k>2 (obtained using DTM over euler-lagrange equation)
+        y0: value of y(0)
+        args: a tuple containing any extra arguments for Y ordered as they must be introduced
+        symbolic: if true, transform will return a symbolic value (using symbol "gamma" from sympy)
+            a numeric value otherwise
+        gama: a float (the numerical value of gamma)
+    Return:
+        a list with every Y(j) in terms of gamma = Y(1) for j<=k
+    """
+    n = len(args)
+    
+    if (0 == k):
+        return [y0]
+    elif (1 == k):
+        if symbolic:
+            return [y0, Symbol("gamma")]      #gamma will be the fit of our model
+        else:
+            return [y0, gama]
+    elif (2 == k):
+        if (symbolic):
+            return [y0 , Symbol("gamma"), Y()]  #calculated by hand
+        else:
+            return [y0, gama, 1/(4*(3*beta*gama-alpha))]
+    elif (2 < k):
+        result = 0      
+        if symbolic:
+            gamma = Symbol("gamma")
+        else:
+            gamma = gama
+        r = k-2     #r stated in (3)
+        previous = diffTrans(k-1, alpha, beta, symbolic, gama)
+        delta = 2*(r+1)*(r+2)*(3*beta*gamma-alpha)
+        addTerm = r*previous[r]*gamma
+        addTerm = addTerm - 2*r*(r+1)*previous[r+1]*previous[2]
+        summatory = 0
+        for m in range(r-1):        #range goes up to one number before
+            summatory += (m+1)*(m+2)*previous[m+2]*(r-m-1)*previous[r-m-1]
+            summatory += (m+1)*(r-m)*previous[m+1]*previous[r-m]
+            summatory -= (m+1)*(m+2)*previous[m+2]*(r-m+1)*previous[r-m+1]
+        result += 6*beta*(summatory + addTerm)
+        result /= delta
+        previous.append(result)
+        return previous
+        
+        
 def diffTrans(k, alpha, beta, symbolic = True, gama = 0.0):
     """
     kth differential transform of the function y(t) satisfy (3). This helper
