@@ -3,6 +3,10 @@
 """
 Created on Thu Nov 29 19:38:34 2018
 
+This sheet is thought to be an example on how to use DTM for a particular case. Problem is stated as follows. 
+
+The goverment has told a monopoly company it must reduce prices by 10% over the course
+
 @author: Chino
 """
 
