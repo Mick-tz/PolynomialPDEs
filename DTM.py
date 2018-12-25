@@ -159,22 +159,14 @@ def fitModel(k, Y, args, y1, t1=1):
     gammas = findGammas(k, Y, args, y1, t1)
     return differential_transform(k, Y, args, False, gammas[0])
 
-
-def model(t, alpha = 5.0, beta = 5.0, k = 6, Ys = []):
+def integrate_lagrangian(L, args, t1=1):
     """
-    Uses fitModel to find the correspondant Y(m)'s for m<= k then evaluates the
-    model at time 0<=t<=1
+    numerical integreation from lagrangian L between 0 and t1
     Args:
-        k: an int greater than 1 (greater than 6 for a good approx)
-        y1: actual value at second boundary
-        Y: a function that returns Y(k) when (obtained using DTM over euler-lagrange equation)
-        args: a tuple containing any extra arguments for Y ordered as they must be introduced
-        t1: parameter of second boundary
+        L: the lagrangian (as a function of t and some args)
+        args: extra arguments for L in the order they appear
+        t1: parameter at second boundary
     """
-    if len(Ys) == 0:
-        Ys = fitModel(k, alpha, beta)
-    result = 0
-    for r in range(len(Ys)):
-        result = result + Ys[r]*(t**r)
-    return result
+    return quad(L, 0, t1, args)
+
 
