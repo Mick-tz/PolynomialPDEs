@@ -13,38 +13,9 @@ This implementation of the differential transform method (DTM)
 @author: Chino
 """
 
-#import numpy as np
-#import scipy as sp
 from sympy.solvers import solve
 from sympy import Symbol
 from scipy import optimize
-
-def recursiveY(k, gamma, alpha, beta):
-    """
-    
-    """
-    if (0 == k):
-        return [1]            #Y(0)=y(0)=1
-    elif (1 == k):
-        return [1, gamma]
-    elif (2 == k):
-        return [1, gamma, 1/(4*(3*beta*gamma-alpha))]
-    elif (2 < k):
-        result = 0
-        r = k-2     #r stated in (3)
-        previous = recursiveY(k-1, alpha, beta, gamma)
-        delta = 2*(r+1)*(r+2)*(3*beta*gamma-alpha)
-        addTerm = r*previous[r]*gamma
-        addTerm = addTerm - 2*r*(r+1)*previous[r+1]*previous[2]
-        summatory = 0
-        for m in range(r-1):        #range goes up to one number before
-            summatory += (m+1)*(m+2)*previous[m+2]*(r-m-1)*previous[r-m-1]
-            summatory += (m+1)*(r-m)*previous[m+1]*previous[r-m]
-            summatory -= (m+1)*(m+2)*previous[m+2]*(r-m+1)*previous[r-m+1]
-        result += 6*beta*(summatory + addTerm)
-        result /= delta
-        previous.append(result)
-        return previous
 
 
 def differential_transform(k, Y, args, symbolic = True, gama = 0.0):
