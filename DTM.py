@@ -63,7 +63,7 @@ def polynomial_model(t, Ys):
 
 def findGammas(k, Y, args, y1, t1=1):
     """
-    Obtains and approximation to gamma using sympy solver
+    Obtains an approximation to gamma using sympy solver
 
     Args:
         k: an int greater than 1 (greater than 6 for a good approx)
